@@ -14,3 +14,6 @@ class Product(models.Model):
     image = models.ImageField(upload_to='products_images', null=True, blank=True)
     stripe_product_price_id = models.CharField(max_length=128, null=True, blank=True)
     category = models.ForeignKey(to=ProductCategory, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'Продукт {self.name} | Категория {self.category}'
